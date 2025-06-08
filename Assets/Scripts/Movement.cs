@@ -14,8 +14,8 @@ public class Movement : MonoBehaviour
     public float airMultiplier;
     bool readyToJump = true;
 
-    [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
+     [Header("Keybinds")]
+     public KeyCode jumpKey = KeyCode.Space;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -40,17 +40,16 @@ public class Movement : MonoBehaviour
     void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * (0.5f + 0.2f), whatIsGround);
-        
         MyInput();
         SpeedControl();
-        
         if (grounded)
         {
             rb.drag = groundDrag;
+            
         }
-        else 
+        else
         {
-            rb.drag = 2;
+            rb.drag = 3;    
         }
     }
 
@@ -64,10 +63,10 @@ public class Movement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         
-        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (Input.GetKeyDown(jumpKey) && readyToJump && grounded)
         {
-            readyToJump = false;
             Jump();
+            readyToJump = false;
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }

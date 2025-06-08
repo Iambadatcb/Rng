@@ -15,6 +15,7 @@ public class RngWeighted : MonoBehaviour
         new Rarity("Rare", 7f),
         new Rarity("Epic", 2f),
         new Rarity("Legendary", 1f),
+        new Rarity("Mythical", 0.1f),
     };
     
     private float totalWeight;

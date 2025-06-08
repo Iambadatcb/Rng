@@ -25,8 +25,8 @@ public class CameraController : MonoBehaviour
         currentZoom = maxZoom;
         currentX = 0f;
         currentY = 10f;  // Slightly looking down by default
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     void Update()
