@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,6 @@ public class RngWeighted : MonoBehaviour
         new Rarity("Rare", 7f),
         new Rarity("Epic", 2f),
         new Rarity("Legendary", 1f),
-        new Rarity("Mythical", 0.1f),
     };
     
     private float totalWeight;
@@ -32,6 +32,7 @@ public class RngWeighted : MonoBehaviour
                 rarity.Weight = 0;
             }
             totalWeight += rarity.Weight;
+            Debug.Log(rarity.Weight);
         }
 
         if (totalWeight <= 0)
@@ -67,7 +68,7 @@ public class RngWeighted : MonoBehaviour
 
 
     // Example usage: print the roll result
-    public Text resultText; // Optional, assign in inspector to show result on UI
+    public TextMeshProUGUI resultText; // Optional, assign in inspector to show result on UI
     public void RollOnClick()
     {
         Rarity rolled = Roll();
