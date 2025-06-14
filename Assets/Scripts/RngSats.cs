@@ -77,6 +77,8 @@ public class RngWeighted : MonoBehaviour
             Debug.Log($"You rolled: {rolled.Name} rarity!");
             if (resultText != null)
                 resultText.text = $"You rolled: {rolled.Name} rarity!";
+                
+
         }
     }
     // Remove rolling from Update or leave it empty.
